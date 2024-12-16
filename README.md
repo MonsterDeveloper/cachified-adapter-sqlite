@@ -60,7 +60,7 @@ createBetterSqlite3CacheTable(database, TABLE_NAME)
 const cache = betterSqlite3CacheAdapter({
   database,
   tableName: TABLE_NAME,
-  keyPrefix: "my-app-", // optionally specify a key prefix
+  keyPrefix: "my-app", // optionally specify a key prefix
   name: "my-app-cache", // optionally specify a cache name
 })
 
