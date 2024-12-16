@@ -1,0 +1,13 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "[json][javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}

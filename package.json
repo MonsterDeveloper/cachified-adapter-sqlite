@@ -1,0 +1,97 @@
+{
+  "name": "cachified-adapter-sqlite",
+  "version": "1.0.0",
+  "description": "SQLite adapter for @epic-web/cachified. Compatible with better-sqlite3, sqlite, sqlite3, and Bun SQLite.",
+  "sideEffects": false,
+  "type": "module",
+  "packageManager": "bun@1.1.38",
+  "keywords": [
+    "cache",
+    "@epic-web/cachified",
+    "cachified",
+    "sqlite",
+    "bun-sqlite",
+    "better-sqlite3",
+    "sqlite3"
+  ],
+  "homepage": "https://github.com/MonsterDeveloper/cachified-adapter-sqlite",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonsterDeveloper/cachified-adapter-sqlite"
+  },
+  "bugs": {
+    "url": "https://github.com/MonsterDeveloper/cachified-adapter-sqlite/issues"
+  },
+  "license": "GPL-3.0-only",
+  "author": "Andrei Bobkov <me@ctoofeverything.dev>",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./sqlite": {
+      "import": "./dist/sqlite.js",
+      "types": "./dist/sqlite.d.ts"
+    },
+    "./sqlite3": {
+      "import": "./dist/sqlite3.js",
+      "types": "./dist/sqlite3.d.ts"
+    },
+    "./better-sqlite3": {
+      "import": "./dist/better-sqlite3.js",
+      "types": "./dist/better-sqlite3.d.ts"
+    },
+    "./bun": {
+      "import": "./dist/bun.js",
+      "types": "./dist/bun.d.ts"
+    }
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.1",
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.10",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/bun": "latest",
+    "husky": "^9.1.7",
+    "typescript": "^5.0.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^2.1.8"
+  },
+  "peerDependencies": {
+    "@epic-web/cachified": "^5.2.0",
+    "better-sqlite3": "^11.7.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "peerDependenciesMeta": {
+    "better-sqlite3": {
+      "optional": true
+    },
+    "sqlite": {
+      "optional": true
+    },
+    "sqlite3": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "prepare": "husky",
+    "build": "vite build",
+    "test": "vitest run && bun test bun.test.ts",
+    "check": "biome check",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm --profile node16",
+    "typecheck": "tsc",
+    "knip": "knip",
+    "update": "bunx npm-check-updates -ui"
+  }
+}
