@@ -47,13 +47,19 @@ jobs:
       - name: Check exports
         run: bun check-exports
 
-      - name: Create release
-        uses: softprops/action-gh-release@v1
-      
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1
+        id: changesets
         with:
           publish: changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Create release
+        if: steps.changesets.outputs.published == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ fromJSON(steps.changesets.outputs.publishedPackages)[0].version }}
+
+        
