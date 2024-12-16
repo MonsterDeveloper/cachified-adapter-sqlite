@@ -46,7 +46,7 @@ npm i cachified-adapter-sqlite @epic-web/cachified
 import { cachified } from "@epic-web/cachified"
 
 import { betterSqlite3CacheAdapter, createBetterSqlite3CacheTable } from "cachified-adapter-sqlite/better-sqlite3" // better-sqlite3
-import { Database } from "better-sqlite3"
+import Database from "better-sqlite3"
 // ---- OR ----
 import { sqliteCacheAdapter, createSqliteCacheTable } from "cachified-adapter-sqlite/sqlite" // sqlite
 import { sqlite3CacheAdapter, createSqlite3CacheTable } from "cachified-adapter-sqlite/sqlite3" // sqlite3
