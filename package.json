@@ -1,6 +1,6 @@
 {
   "name": "cachified-adapter-sqlite",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "SQLite adapter for @epic-web/cachified. Compatible with better-sqlite3, sqlite, sqlite3, and Bun SQLite.",
   "sideEffects": false,
   "type": "module",
