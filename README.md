@@ -1,7 +1,6 @@
 # cachified-adapter-sqlite
 
 [![npm](https://img.shields.io/npm/v/cachified-adapter-sqlite)](https://npmjs.com/package/cachified-adapter-sqlite)
-[![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/cachified-adapter-sqlite?exports=CachifiedAdapterSqlite)](https://bundlejs.com/?q=cachified-adapter-sqlite&treeshake=%5B%7B+CachifiedAdapterSqlite+%7D%5D)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/MonsterDeveloper/cachified-adapter-sqlite/publish.yml)](https://github.com/MonsterDeveloper/cachified-adapter-sqlite/actions/workflows/publish.yml)
 [![GitHub License](https://img.shields.io/github/license/MonsterDeveloper/cachified-adapter-sqlite)](https://github.com/MonsterDeveloper/cachified-adapter-sqlite/blob/main/LICENSE)
 

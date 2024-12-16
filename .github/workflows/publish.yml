@@ -1,4 +1,5 @@
 name: Publish library to NPM
+run-name: Publish library to NPM by ${{ github.actor }}
 
 on:
   push:
