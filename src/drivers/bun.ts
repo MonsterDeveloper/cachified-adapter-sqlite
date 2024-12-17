@@ -3,6 +3,16 @@ import { type Cache, totalTtl } from "@epic-web/cachified"
 import { buildCacheKey } from "../cache-key"
 import type { CachifiedAdapterSqliteOptions } from "../index"
 
+/**
+ * Creates a Bun SQLite cache adapter for use with cachified
+ *
+ * @param options - {@linkcode CachifiedAdapterSqliteOptions} plus a database instance
+ * @param options.database - The Bun SQLite database instance
+ * @param options.tableName - Name of the table to store cache entries
+ * @param options.keyPrefix - Optional prefix to namespace cache keys
+ * @param options.name - Optional name for the cache adapter
+ * @returns A Cache instance that stores data in SQLite using Bun's SQLite driver
+ */
 export function bunSqliteCacheAdapter<Value = unknown>(
   options: CachifiedAdapterSqliteOptions & {
     database: Database
@@ -62,6 +72,12 @@ export function bunSqliteCacheAdapter<Value = unknown>(
   }
 }
 
+/**
+ * Creates a cache table in the SQLite database if it doesn't already exist
+ *
+ * @param database - The Bun SQLite Database instance
+ * @param tableName - Name of the cache table to create
+ */
 export function createBunSqliteCacheTable(
   database: Database,
   tableName: string,

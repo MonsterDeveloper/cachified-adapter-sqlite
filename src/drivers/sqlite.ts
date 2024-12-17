@@ -3,6 +3,16 @@ import type { Database } from "sqlite"
 import { buildCacheKey } from "../cache-key"
 import type { CachifiedAdapterSqliteOptions } from "../index"
 
+/**
+ * Creates a sqlite cache adapter for use with cachified
+ *
+ * @param options - {@linkcode CachifiedAdapterSqliteOptions} plus a database instance
+ * @param options.database - The sqlite database instance
+ * @param options.tableName - Name of the table to store cache entries
+ * @param options.keyPrefix - Optional prefix to namespace cache keys
+ * @param options.name - Optional name for the cache adapter
+ * @returns A Cache instance that stores data in SQLite using sqlite
+ */
 export function sqliteCacheAdapter<Value = unknown>(
   options: CachifiedAdapterSqliteOptions & {
     database: Database
@@ -64,6 +74,12 @@ export function sqliteCacheAdapter<Value = unknown>(
   }
 }
 
+/**
+ * Creates a cache table in the SQLite database if it doesn't already exist
+ *
+ * @param database - The sqlite Database instance
+ * @param tableName - Name of the cache table to create
+ */
 export function createSqliteCacheTable(database: Database, tableName: string) {
   return database.exec(`CREATE TABLE IF NOT EXISTS ${tableName} (
     key TEXT PRIMARY KEY,
