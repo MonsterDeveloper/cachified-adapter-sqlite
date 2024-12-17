@@ -4,7 +4,7 @@
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/MonsterDeveloper/cachified-adapter-sqlite/publish.yml)](https://github.com/MonsterDeveloper/cachified-adapter-sqlite/actions/workflows/publish.yml)
 [![GitHub License](https://img.shields.io/github/license/MonsterDeveloper/cachified-adapter-sqlite)](https://github.com/MonsterDeveloper/cachified-adapter-sqlite/blob/main/LICENSE)
 
-`cachified-adapter-sqlite` is an adapter for [@epic-web/cachified](https://github.com/epic-web/cachified) that allows you to use SQLite as a cache backend.
+`cachified-adapter-sqlite` is an adapter for [@epic-web/cachified](https://github.com/epicweb-dev/cachified) that allows you to use SQLite as a cache backend.
 
 It supports [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3), [`sqlite`](https://github.com/kriasoft/node-sqlite), [`sqlite3`](https://github.com/TryGhost/node-sqlite3), and [`bun:sqlite`](https://bun.sh/docs/api/sqlite).
 
@@ -80,4 +80,4 @@ export async function getUserById(id: number) {
 
 ## Many thanks to
 
-Kent C. Dodds and contributors for the [@epic-web/cachified](https://github.com/epic-web/cachified) library, and to Adishwar Rishi for his inspirational [cachified-adapter-cloudflare-kv](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv)
+Kent C. Dodds and contributors for the [@epic-web/cachified](https://github.com/epicweb-dev/cachified) library, and to Adishwar Rishi for his inspirational [cachified-adapter-cloudflare-kv](https://github.com/AdiRishi/cachified-adapter-cloudflare-kv)
