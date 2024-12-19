@@ -20,7 +20,7 @@ export function bunSqliteCacheAdapter<Value = unknown>(
 ): Cache<Value> {
   return {
     name: options.name ?? "bun-sqlite",
-    get: async (key) => {
+    get: (key) => {
       const cacheKey = buildCacheKey(key, options.keyPrefix)
 
       const row = options.database
@@ -42,7 +42,7 @@ export function bunSqliteCacheAdapter<Value = unknown>(
 
       return entry
     },
-    set: async (key, entry) => {
+    set: (key, entry) => {
       const cacheKey = buildCacheKey(key, options.keyPrefix)
 
       const ttl = totalTtl(entry.metadata)
@@ -62,7 +62,7 @@ export function bunSqliteCacheAdapter<Value = unknown>(
 
       return entry.value
     },
-    delete: async (key) => {
+    delete: (key) => {
       const cacheKey = buildCacheKey(key, options.keyPrefix)
 
       options.database

@@ -17,6 +17,9 @@
       "recommended": true,
       "correctness": {
         "noUnusedImports": "error"
+      },
+      "suspicious": {
+        "useAwait": "error"
       }
     }
   },
