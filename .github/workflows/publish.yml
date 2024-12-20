@@ -10,7 +10,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   publish-to-npm:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 5
     permissions:
       contents: write
@@ -24,7 +24,7 @@ jobs:
       - name: Setup bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.1.38
+          bun-version: 1.1.40
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
