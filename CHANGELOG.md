@@ -1,5 +1,11 @@
 # cachified-adapter-sqlite
 
+## 1.0.2
+
+### Patch Changes
+
+- 6a85e93: Improve performance by preparing statements on adapter initialization for `bun:sqlite` and `better-sqlite3` drivers
+
 ## 1.0.1
 
 ### Patch Changes
