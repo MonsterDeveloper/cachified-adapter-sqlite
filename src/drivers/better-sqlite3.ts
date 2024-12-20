@@ -18,16 +18,25 @@ export function betterSqlite3CacheAdapter<Value = unknown>(
     database: Database
   },
 ): Cache<Value> {
+  // Prepare statements
+  const getStatement = options.database.prepare(
+    `SELECT value, metadata FROM ${options.tableName} WHERE key = ?`,
+  )
+  const setStatement = options.database.prepare(
+    `INSERT OR REPLACE INTO ${options.tableName} (key, value, metadata) VALUES (?, ?, ?)`,
+  )
+  const deleteStatement = options.database.prepare(
+    `DELETE FROM ${options.tableName} WHERE key = ?`,
+  )
+
   return {
     name: options.name ?? "better-sqlite3",
     get: (key) => {
       const cacheKey = buildCacheKey(key, options.keyPrefix)
 
-      const row = options.database
-        .prepare(
-          `SELECT value, metadata FROM ${options.tableName} WHERE key = ?`,
-        )
-        .get(cacheKey) as { value: string; metadata: string } | undefined
+      const row = getStatement.get(cacheKey) as
+        | { value: string; metadata: string }
+        | undefined
 
       if (!row) {
         return null
@@ -49,27 +58,21 @@ export function betterSqlite3CacheAdapter<Value = unknown>(
 
       const ttl = totalTtl(entry.metadata)
 
-      options.database
-        .prepare(
-          `INSERT OR REPLACE INTO ${options.tableName} (key, value, metadata) VALUES (?, ?, ?)`,
-        )
-        .run(
-          cacheKey,
-          JSON.stringify(entry.value),
-          JSON.stringify({
-            ...entry.metadata,
-            ttl: ttl === Number.POSITIVE_INFINITY ? null : ttl,
-          }),
-        )
+      setStatement.run(
+        cacheKey,
+        JSON.stringify(entry.value),
+        JSON.stringify({
+          ...entry.metadata,
+          ttl: ttl === Number.POSITIVE_INFINITY ? null : ttl,
+        }),
+      )
 
       return entry.value
     },
     delete: (key) => {
       const cacheKey = buildCacheKey(key, options.keyPrefix)
 
-      options.database
-        .prepare(`DELETE FROM ${options.tableName} WHERE key = ?`)
-        .run(cacheKey)
+      deleteStatement.run(cacheKey)
     },
   }
 }
