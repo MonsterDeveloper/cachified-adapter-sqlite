@@ -18,6 +18,8 @@ export function sqliteCacheAdapter<Value = unknown>(
     database: Database
   },
 ): Cache<Value> {
+  // We cannot prepare statements in `sqlite` as it is an asynchronous operation,
+  // and thus would require making this init function async
   return {
     name: options.name ?? "sqlite",
     get: async (key) => {
