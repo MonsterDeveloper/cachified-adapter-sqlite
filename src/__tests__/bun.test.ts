@@ -120,7 +120,7 @@ describe("bunSqliteCacheAdapter", () => {
       expect(result).toEqual({ value: stringValue, metadata })
     })
 
-    it("throws an error for non-stringified non-JSON values", async () => {
+    it("throws an error for non-stringified non-JSON values", () => {
       const adapter = bunSqliteCacheAdapter({
         database,
         tableName: "cache1",
@@ -136,7 +136,7 @@ describe("bunSqliteCacheAdapter", () => {
         .query("INSERT INTO cache1 (key, value, metadata) VALUES (?, ?, ?)")
         .run("non-json-key", nonJsonValue, JSON.stringify(metadata))
 
-      await expect(adapter.get("non-json-key")).rejects.toThrow()
+      expect(() => adapter.get("non-json-key")).toThrow()
     })
   })
 
@@ -255,15 +255,13 @@ describe("bunSqliteCacheAdapter", () => {
       expect(result).toBeNull()
     })
 
-    it("handles deletion of non-existent keys gracefully", async () => {
+    it("handles deletion of non-existent keys gracefully", () => {
       const adapter = bunSqliteCacheAdapter({
         database,
         tableName: "cache1",
       })
 
-      const deletePromise = adapter.delete("non-existent-key")
-
-      await expect(deletePromise).resolves.toBeUndefined()
+      expect(adapter.delete("non-existent-key")).toBeUndefined()
     })
 
     it("does not affect other keys when deleting a specific key", async () => {

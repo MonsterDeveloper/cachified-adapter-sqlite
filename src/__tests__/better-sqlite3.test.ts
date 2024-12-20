@@ -136,7 +136,7 @@ describe("betterSqlite3CacheAdapter", () => {
         .prepare("INSERT INTO cache1 (key, value, metadata) VALUES (?, ?, ?)")
         .run("non-json-key", nonJsonValue, JSON.stringify(metadata))
 
-      await expect(adapter.get("non-json-key")).rejects.toThrow()
+      await expect(() => adapter.get("non-json-key")).toThrow()
     })
   })
 
@@ -255,15 +255,13 @@ describe("betterSqlite3CacheAdapter", () => {
       expect(result).toBeUndefined()
     })
 
-    it("handles deletion of non-existent keys gracefully", async () => {
+    it("handles deletion of non-existent keys gracefully", () => {
       const adapter = betterSqlite3CacheAdapter({
         database,
         tableName: "cache1",
       })
 
-      const deletePromise = adapter.delete("non-existent-key")
-
-      await expect(deletePromise).resolves.toBeUndefined()
+      expect(adapter.delete("non-existent-key")).toBeUndefined()
     })
 
     it("does not affect other keys when deleting a specific key", async () => {
