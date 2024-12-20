@@ -98,6 +98,6 @@
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm --profile node16",
     "typecheck": "tsc",
     "knip": "knip",
-    "update": "bunx npm-check-updates -ui"
+    "update": "bunx npm-check-updates -ui --reject bun"
   }
 }
