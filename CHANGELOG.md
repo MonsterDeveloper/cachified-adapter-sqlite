@@ -1,5 +1,11 @@
 # cachified-adapter-sqlite
 
+## 1.1.0
+
+### Minor Changes
+
+- de337ff: Add `node:sqlite` driver
+
 ## 1.0.2
 
 ### Patch Changes
