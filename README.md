@@ -6,7 +6,7 @@
 
 `cachified-adapter-sqlite` is an adapter for [@epic-web/cachified](https://github.com/epicweb-dev/cachified) that allows you to use SQLite as a cache backend.
 
-It supports [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3), [`sqlite`](https://github.com/kriasoft/node-sqlite), [`sqlite3`](https://github.com/TryGhost/node-sqlite3), and [`bun:sqlite`](https://bun.sh/docs/api/sqlite).
+It supports [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3), [`sqlite`](https://github.com/kriasoft/node-sqlite), [`sqlite3`](https://github.com/TryGhost/node-sqlite3), [`bun:sqlite`](https://bun.sh/docs/api/sqlite), and [`node:sqlite`](https://nodejs.org/docs/latest-v22.x/api/sqlite.html).
 
 
 ## Installation
@@ -51,6 +51,7 @@ import Database from "better-sqlite3"
 import { sqliteCacheAdapter, createSqliteCacheTable } from "cachified-adapter-sqlite/sqlite" // sqlite
 import { sqlite3CacheAdapter, createSqlite3CacheTable } from "cachified-adapter-sqlite/sqlite3" // sqlite3
 import { bunSqliteCacheAdapter, createBunSqliteCacheTable } from "cachified-adapter-sqlite/bun" // bun:sqlite
+import { nodeSqliteCacheAdapter, createNodeSqliteCacheTable } from "cachified-adapter-sqlite/node-sqlite" // node:sqlite
 
 const TABLE_NAME = "cache"
 const database = new Database(":memory:") // create a database using your library of choice

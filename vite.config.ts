@@ -17,6 +17,7 @@ export default defineConfig({
           new URL("src/drivers/better-sqlite3.ts", import.meta.url),
         ),
         fileURLToPath(new URL("src/drivers/bun.ts", import.meta.url)),
+        fileURLToPath(new URL("src/drivers/node-sqlite.ts", import.meta.url)),
       ],
       name: "cachified-adapter-sqlite",
       formats: ["es"],
@@ -37,6 +38,10 @@ export default defineConfig({
     }),
   ],
   test: {
-    include: ["src/**/*.test.ts", "!src/**/bun.test.ts"],
+    include: [
+      "src/**/*.test.ts",
+      "!src/**/bun.test.ts",
+      "!src/**/node-sqlite.test.ts",
+    ],
   },
 })

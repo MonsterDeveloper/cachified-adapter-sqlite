@@ -1,10 +1,10 @@
 {
   "name": "cachified-adapter-sqlite",
   "version": "1.0.2",
-  "description": "SQLite adapter for @epic-web/cachified. Compatible with better-sqlite3, sqlite, sqlite3, and Bun SQLite.",
+  "description": "SQLite adapter for @epic-web/cachified. Compatible with better-sqlite3, sqlite, sqlite3, node:sqlite, and bun:sqlite.",
   "sideEffects": false,
   "type": "module",
-  "packageManager": "bun@1.1.40",
+  "packageManager": "bun@1.1.42",
   "keywords": [
     "cache",
     "@epic-web/cachified",
@@ -12,7 +12,8 @@
     "sqlite",
     "bun-sqlite",
     "better-sqlite3",
-    "sqlite3"
+    "sqlite3",
+    "node-sqlite"
   ],
   "homepage": "https://github.com/MonsterDeveloper/cachified-adapter-sqlite",
   "repository": {
@@ -50,6 +51,10 @@
     "./bun": {
       "import": "./dist/bun.js",
       "types": "./dist/bun.d.ts"
+    },
+    "./node-sqlite": {
+      "import": "./dist/node-sqlite.js",
+      "types": "./dist/node-sqlite.d.ts"
     }
   },
   "publishConfig": {
@@ -61,17 +66,19 @@
     "@changesets/cli": "^2.27.11",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
+    "@epic-web/cachified": "^5.2.0",
     "@types/better-sqlite3": "^7.6.12",
     "@types/bun": "latest",
+    "@types/node": "^22.10.2",
+    "better-sqlite3": "^11.7.0",
     "husky": "^9.1.7",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vite-plugin-dts": "^4.4.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^2.1.8",
-    "@epic-web/cachified": "^5.2.0",
-    "better-sqlite3": "^11.7.0",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "vitest": "^2.1.8"
   },
   "peerDependencies": {
     "@epic-web/cachified": "^5.2.0",
@@ -93,7 +100,10 @@
   "scripts": {
     "prepare": "husky",
     "build": "vite build",
-    "test": "vitest run && bun test bun.test.ts",
+    "test:vitest": "vitest run",
+    "test:bun": "bun test bun.test.ts",
+    "test:node": "node --import tsx --test --experimental-sqlite src/__tests__/node-sqlite.test.ts",
+    "test": "bun test:vitest && bun test:bun && bun test:node",
     "check": "biome check",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm --profile node16",
     "typecheck": "tsc",
