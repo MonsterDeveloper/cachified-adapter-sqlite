@@ -2,6 +2,7 @@ export * from "./drivers/sqlite3"
 export * from "./drivers/sqlite"
 export * from "./drivers/better-sqlite3"
 export * from "./drivers/bun"
+export * from "./drivers/node-sqlite"
 
 /**
  * Common options for all SQLite-based cache adapters
