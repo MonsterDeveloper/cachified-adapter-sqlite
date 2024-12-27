@@ -66,6 +66,7 @@
     "@changesets/cli": "^2.27.11",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
+    "@cto_of_everything/biome-config": "^0.0.3",
     "@epic-web/cachified": "^5.2.0",
     "@types/better-sqlite3": "^7.6.12",
     "@types/bun": "latest",

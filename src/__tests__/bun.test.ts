@@ -56,7 +56,7 @@ describe("bunSqliteCacheAdapter", () => {
 
       const metadata: CacheMetadata = {
         ttl: 1234,
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       database
@@ -82,7 +82,7 @@ describe("bunSqliteCacheAdapter", () => {
 
       const metadata: CacheMetadata = {
         ttl: 1234,
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       database
@@ -108,7 +108,7 @@ describe("bunSqliteCacheAdapter", () => {
       const stringifiedValue = JSON.stringify(stringValue)
       const metadata: CacheMetadata = {
         ttl: 1234,
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       database
@@ -129,7 +129,7 @@ describe("bunSqliteCacheAdapter", () => {
       const nonJsonValue = "Non-JSON string"
 
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       database
@@ -148,7 +148,7 @@ describe("bunSqliteCacheAdapter", () => {
       })
       const value = "simple string"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1234,
       }
 
@@ -170,7 +170,7 @@ describe("bunSqliteCacheAdapter", () => {
       })
       const value = { foo: "bar" }
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 0,
       }
 
@@ -191,7 +191,7 @@ describe("bunSqliteCacheAdapter", () => {
       })
       const value = "simple string"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: Number.POSITIVE_INFINITY,
       }
 
@@ -217,7 +217,7 @@ describe("bunSqliteCacheAdapter", () => {
       })
       const value = "test value"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1000,
       }
 
@@ -239,7 +239,7 @@ describe("bunSqliteCacheAdapter", () => {
       })
       const value = "test value"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1000,
       }
 
@@ -272,7 +272,7 @@ describe("bunSqliteCacheAdapter", () => {
       const value1 = "test value 1"
       const value2 = "test value 2"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1000,
       }
 

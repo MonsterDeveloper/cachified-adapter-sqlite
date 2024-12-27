@@ -1,31 +1,27 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["@cto_of_everything/biome-config"],
   "files": {
-    "ignoreUnknown": false,
-    "ignore": ["dist", "node_modules", "package.json"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space"
-  },
-  "organizeImports": {
-    "enabled": true
+    "ignore": ["dist"]
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "recommended": true,
-      "correctness": {
-        "noUnusedImports": "error"
-      },
-      "suspicious": {
-        "useAwait": "error"
+      "performance": {
+        "noReExportAll": "off",
+        "noBarrelFile": "off"
       }
     }
   },
-  "javascript": {
-    "formatter": {
-      "semicolons": "asNeeded"
+  "overrides": [
+    {
+      "include": ["vite.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
     }
-  }
+  ]
 }

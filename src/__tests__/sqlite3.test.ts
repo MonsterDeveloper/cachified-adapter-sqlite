@@ -68,7 +68,7 @@ describe("sqlite3CacheAdapter", () => {
 
       const metadata: CacheMetadata = {
         ttl: 1234,
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       await new Promise<void>((resolve, reject) => {
@@ -106,7 +106,7 @@ describe("sqlite3CacheAdapter", () => {
 
       const metadata: CacheMetadata = {
         ttl: 1234,
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       await new Promise<void>((resolve, reject) => {
@@ -137,7 +137,7 @@ describe("sqlite3CacheAdapter", () => {
       const stringifiedValue = JSON.stringify(stringValue)
       const metadata: CacheMetadata = {
         ttl: 1234,
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       await new Promise<void>((resolve, reject) => {
@@ -167,7 +167,7 @@ describe("sqlite3CacheAdapter", () => {
       const nonJsonValue = "Non-JSON string"
 
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
       }
 
       await new Promise<void>((resolve, reject) => {
@@ -195,7 +195,7 @@ describe("sqlite3CacheAdapter", () => {
       const adapter = sqlite3CacheAdapter({ database, tableName: "cache1" })
       const value = { foo: "bar" }
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 0,
       }
 
@@ -229,7 +229,7 @@ describe("sqlite3CacheAdapter", () => {
       })
       const value = { foo: "bar" }
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 0,
       }
 
@@ -259,7 +259,7 @@ describe("sqlite3CacheAdapter", () => {
       const adapter = sqlite3CacheAdapter({ database, tableName: "cache1" })
       const value = "simple string"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1234,
       }
 
@@ -289,7 +289,7 @@ describe("sqlite3CacheAdapter", () => {
       const adapter = sqlite3CacheAdapter({ database, tableName: "cache1" })
       const value = "simple string"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: Number.POSITIVE_INFINITY,
       }
 
@@ -324,7 +324,7 @@ describe("sqlite3CacheAdapter", () => {
       const adapter = sqlite3CacheAdapter({ database, tableName: "cache1" })
       const value = "test value"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1000,
       }
 
@@ -358,7 +358,7 @@ describe("sqlite3CacheAdapter", () => {
       })
       const value = "test value"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1000,
       }
 
@@ -397,7 +397,7 @@ describe("sqlite3CacheAdapter", () => {
       const value1 = "test value 1"
       const value2 = "test value 2"
       const metadata: CacheMetadata = {
-        createdTime: new Date().getTime(),
+        createdTime: Date.now(),
         ttl: 1000,
       }
 
