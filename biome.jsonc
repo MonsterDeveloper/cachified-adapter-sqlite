@@ -11,17 +11,5 @@
         "noBarrelFile": "off"
       }
     }
-  },
-  "overrides": [
-    {
-      "include": ["vite.config.ts"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noDefaultExport": "off"
-          }
-        }
-      }
-    }
-  ]
+  }
 }
